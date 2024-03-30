@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import { MainNav } from "@/components/main-nav"
 import "./globals.css";
 import Link from "next/link";
+import { BreadCrumbs } from "@/components/breadcrumbs";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,7 +22,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <div className="flex min-h-screen flex-col items-center">
           <header className="container z-40 bg-background">
-            <div className="flex h-20 items-center justify-between py-6">
+            <div className="flex h-20 items-center justify-between pt-6 pb-4">
               <MainNav />
               <nav>
                 <Link
@@ -47,7 +48,11 @@ export default function RootLayout({
               </nav>
             </div>
           </header>
-          <main className="flex-1 container">{children}</main>
+          <main className="flex-1 container">
+            <BreadCrumbs withHome>
+              {children}
+            </BreadCrumbs>
+          </main>
         </div>
       </body>
     </html>

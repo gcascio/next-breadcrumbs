@@ -2,8 +2,8 @@
 
 import { categories } from "@/data/categories";
 import { examples } from "@/data/examples";
-import { notFound } from "next/navigation";
 import Image from "next/image";
+import { useBreadCrumbs } from "@/components/breadcrumbs-context";
 import { useEffect, useState, useCallback } from "react";
 
 type CategoryProps = {
@@ -29,6 +29,7 @@ export default function Category({
 },
 }: CategoryProps) {
   const [example, setExample] = useState<typeof examples[number] | null>(null);
+  useBreadCrumbs(example?.name);
   const exampleVariant = categories
     .find((val) => val.path === category)?.items
     .find((val) => val.path === variant)?.items
