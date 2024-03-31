@@ -26,7 +26,7 @@ export default function RootLayout({
               <MainNav />
               <nav>
                 <Link
-                  href="https://github.com"
+                  href="https://github.com/gcascio/next-breadcrumbs"
                 >
                   <svg
                     aria-hidden="true"
